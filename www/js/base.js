@@ -1,8 +1,12 @@
 
-window.APP_KEY = "";
-window.CLIENT_KEY = "";
+window.APP_KEY = "7289555923bbd2e1aa99230d93c983a601c34c6fd80af21376f52827f04f1129";
+window.CLIENT_KEY = "11aaba2bda49c1992c66fdc22f11a05b4cd429c3b18208bca3ee57e7018a409b";
 
-NCMB.initialize(APP_KEY, CLIENT_KEY);
+window.ncmb = null;
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    ncmb = new NCMB(APP_KEY, CLIENT_KEY);
+}
 
 $(function() {
     tappable('.tappable', {
