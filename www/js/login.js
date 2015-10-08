@@ -45,6 +45,9 @@ var LoginPageController = {
             .signUpByAccount()
             .then(function() {
                 alert("テストユーザーが登録されました\nuserName: user, password: pass");
+            })
+            .catch(function(err) {
+                alert("テストユーザーを既に作成しているか、エラーが発生しました");
             });
     }
 };
