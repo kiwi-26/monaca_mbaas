@@ -1,6 +1,6 @@
 
-window.APP_KEY = "7289555923bbd2e1aa99230d93c983a601c34c6fd80af21376f52827f04f1129";
-window.CLIENT_KEY = "11aaba2bda49c1992c66fdc22f11a05b4cd429c3b18208bca3ee57e7018a409b";
+window.APP_KEY = "YOUR_APP_KEY";
+window.CLIENT_KEY = "YOUR_CLIENT_KEY";
 
 $(function() {
     window.ncmb = new NCMB(APP_KEY, CLIENT_KEY);
