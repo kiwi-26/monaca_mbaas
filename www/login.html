@@ -43,13 +43,7 @@
 </div>
 
 <div class="no-border-button tappable" id="login">
-    ログイン
-</div>
-
-<br />
-
-<div class="no-border-button tappable" id="create" style="color : #666">
-    アカウント作成
+    ユーザー登録/ログイン
 </div>
 
 <script src="js/vendor/ncmb-2.0.0.min.js"></script>
@@ -58,13 +52,6 @@
 <script src="js/vendor/spin.min.js"></script>
 <script src="js/base.js"></script>
 <script src="js/login.js"></script>
-
-<script>
-document.addEventListener("deviceready", onDeviceReadyAtLogin, false);
-function onDeviceReadyAtLogin() {
-    LoginPageController.init();
-}
-</script>
-
+<script>LoginPageController.init();</script>
 </body>
 </html>
