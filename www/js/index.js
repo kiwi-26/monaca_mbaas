@@ -11,13 +11,8 @@ var IndexPageController = {
             location.href = 'todo.html';
         });
 
-        $('#gallery-page').on('tappable-tap', function() {
-            location.href = 'gallery.html';
-        });
-
         $('#login-page').on('tappable-tap', function() {
             location.href = 'login.html';
         });
     }
 };
-
