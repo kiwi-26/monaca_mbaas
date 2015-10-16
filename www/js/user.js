@@ -1,4 +1,3 @@
- 
 var UserPageController = {
     init : function() {
         $(function() {
@@ -16,11 +15,11 @@ var UserPageController = {
 
     load : function() {
 
-        var currentUser = NCMB.User.current();
+        var currentUser = ncmb.User.getCurrentUser();
         if (currentUser) {
             console.log(currentUser);
             $('#user-name').text(currentUser.get('userName'));
-            $('#create-date').text(currentUser.get('createDate'));
+            $('#create-date').text(new Date(Date.parse(currentUser.get('createDate'))).toDateString());
             $('#memo').text(currentUser.get('memo'));
         } else {
             alert("ログインしていません");
@@ -28,8 +27,10 @@ var UserPageController = {
     },
 
     logout : function() {
-        NCMB.User.logOut();
-        location.href = 'login.html';
+        ncmb.User.logout()
+            .then(function() {
+                alert("ログアウトしました");
+                location.href = 'login.html';
+            });
     }
 };
-

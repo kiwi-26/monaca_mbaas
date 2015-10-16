@@ -1,10 +1,11 @@
 
-var TODO = NCMB.Object.extend('TODO');
+var TODO;
 
 var TODOListController = {
 
     init : function() {
         $(function() {
+            TODO = ncmb.DataStore('TODO');
             TODOListController.prepare();
         });
     },
@@ -26,17 +27,15 @@ var TODOListController = {
 
         if (typeof todo === 'string' && todo.length > 0) {
             // TODOを保存
-            new TODO().save({
-                todo : todo
-            }, {
-                success : function() {
+            new TODO({todo : todo})
+                .save()
+                .then(function(saved) {
                     alert("TODO追加できました");
                     TODOListController.refresh();
-                }, 
-                error : function() {
-                    alert("エラーがおきました:");
-                }
-            });
+                })
+                .catch(function(err) {
+                    alert("エラーがおきました");
+                });
         }
     },
 
@@ -44,15 +43,13 @@ var TODOListController = {
 
         showSpinner();
 
-        var query = new NCMB.Query(TODO);
-        query.find({
-            success : function(results) {
+        TODO.fetchAll()
+            .then(function(results) {
                 TODOListController.render(results);
-            },
-            error : function(error) {
+            })
+            .catch(function(error) {
                 console.log(JSON.stringify(arguments));
-            }
-        }); 
+            });
     },
 
     render : function(todoArray) {
